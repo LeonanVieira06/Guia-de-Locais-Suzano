@@ -24,18 +24,20 @@ img, picture, video, canvas, svg { max-width: 100%; height: auto; }
 main { grid-area: main; min-width: 0; }
 .header {
   grid-area: cabecalho;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
   align-items: center;
-  gap: .75rem;
+  gap: 1.5rem;
   padding: 1rem;
   background: var(--azul);
   color: #fff;
-  text-align: center;
+  text-align: left;
 }
+.header-brand { min-width: 0; }
 .header-brand h1 { margin: 0; font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.2; }
 .header-brand p { margin: .25rem 0 0; font-size: .9rem; opacity: .95; }
 .nav, .categorias { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; padding: 0; margin: 0; list-style: none; }
+.nav { justify-self: center; }
 .nav a {
   display: inline-flex;
   min-height: 44px;
@@ -110,8 +112,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "cabecalho cabecalho" "lateral main" "rodape rodape";
   }
-  .header { flex-direction: row; justify-content: space-between; padding: 1rem 2rem; text-align: left; }
-  .nav { gap: .75rem; }
+  .header { padding: 1rem 2rem; }
+  .nav { gap: .75rem; justify-self: end; }
   .lateral { padding: 1.5rem 1rem; }
   .categorias { display: block; }
   .categorias li { margin-bottom: .25rem; }
